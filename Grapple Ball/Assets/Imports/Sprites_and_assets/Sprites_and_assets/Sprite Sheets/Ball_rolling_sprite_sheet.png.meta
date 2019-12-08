@@ -1,7 +1,31 @@
 fileFormatVersion: 2
 guid: df7f5ae76d49c414dacfbd250f49616b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4080010242919742164
+    second: Ball_rolling_sprite_0
+  - first:
+      213: 5559668064777525786
+    second: Ball_rolling_sprite_1
+  - first:
+      213: -1817780860973478687
+    second: Ball_rolling_sprite_2
+  - first:
+      213: -5259793504330225434
+    second: Ball_rolling_sprite_3
+  - first:
+      213: -3723423631301443716
+    second: Ball_rolling_sprite_4
+  - first:
+      213: -865647967254641063
+    second: Ball_rolling_sprite_5
+  - first:
+      213: -5343769520534410288
+    second: Ball_rolling_sprite_6
+  - first:
+      213: 8060832617182271699
+    second: Ball_rolling_sprite_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +64,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -70,9 +94,201 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 40
+        width: 133
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e3eec5d20a5ba46afe0d668fb2d135
+      internalID: -4080010242919742164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_1
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 39
+        width: 133
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 820a53d7edddfae43beb48e6a381e144
+      internalID: 5559668064777525786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_2
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 40
+        width: 133
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a4c6ad63c94293438d0fae72dc8866d
+      internalID: -1817780860973478687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_3
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 40
+        width: 133
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719dc92e199eb5b4697a45380b144c3e
+      internalID: -5259793504330225434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_4
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 42
+        width: 134
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c83b0ee3888266478142bd2abfbaf5a
+      internalID: -3723423631301443716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_5
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 37
+        width: 132
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 114f6f17220018948b18dd25141047bc
+      internalID: -865647967254641063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_6
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 35
+        width: 132
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3708316961e5a1f4fae0c29b237295f1
+      internalID: -5343769520534410288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ball_rolling_sprite_7
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 35
+        width: 133
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b141456ce9d04914fb8029261202f066
+      internalID: 8060832617182271699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
