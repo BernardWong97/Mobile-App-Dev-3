@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
         else
         {
             menuUI.SetActive(false);
-            Time.timeScale = 1;
+            Time.timeScale = 1f;
             IsPaused = false;
         }
     }
@@ -53,7 +53,7 @@ public class PauseMenu : MonoBehaviour
 
     public void NavToMenu()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
