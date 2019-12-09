@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public int playerSpeed = 1;
 
     public int playerJumpForce = 1250;
-    
+
     private bool facingLeft = false;
 
     private float moveX;
