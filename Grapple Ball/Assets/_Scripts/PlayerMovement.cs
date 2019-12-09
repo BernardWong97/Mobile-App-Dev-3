@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveX;
 
+    private bool isGrounded;
+
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void PlayerMove()
     {
         moveX = Input.GetAxis("Horizontal");
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && isGrounded)
             Jump();
         
         if (moveX < 0.0f && facingLeft == false)
@@ -36,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpForce);
+        isGrounded = false;
     }
 
     void FlipPlayer()
@@ -44,5 +48,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 localScale = gameObject.transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    private void OnCollisionEnter2D (Collision2D colObj)
+    {
+        if (colObj.gameObject.tag == "ground")
+            isGrounded = true;
     }
 }
