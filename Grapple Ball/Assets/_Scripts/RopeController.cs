@@ -13,11 +13,11 @@ public class RopeController : MonoBehaviour
 
     private SpringJoint2D _rope;
     public int maxRopeFrameCount;
-    private int ropeFrameCounnt;
+    private int ropeFrameCount;
 
     public LineRenderer lineRenderer;
 
-    private void Update()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -25,7 +25,7 @@ public class RopeController : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         if (_rope != null)
         {
@@ -40,7 +40,7 @@ public class RopeController : MonoBehaviour
         }
     }
 
-    private void ShootRope()
+    void ShootRope()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 position = ball.transform.position;
@@ -59,7 +59,7 @@ public class RopeController : MonoBehaviour
             
             GameObject.DestroyImmediate(_rope);
             _rope = newRope;
-            ropeFrameCounnt = 0;
+            ropeFrameCount = 0;
         }
     }
 }
