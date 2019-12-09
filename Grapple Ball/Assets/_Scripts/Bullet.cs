@@ -30,15 +30,10 @@ public class Bullet : MonoBehaviour
             _xMove = -1;
         else
             _xMove = 1;
-            
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(_xMove, 0));
+    }
 
-        if (hit.distance < 0.7f)
-        {
-            Destroy(gameObject);
-            Debug.Log("HIT " + hit.collider.name);
-        }
-            
-        
+    private void OnCollisionEnter2D(Collision2D colObj)
+    {
+        Destroy(gameObject);
     }
 }

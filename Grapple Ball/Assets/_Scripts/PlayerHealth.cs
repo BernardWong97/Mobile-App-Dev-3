@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,5 +25,11 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player is dead");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnCollisionEnter2D(Collision2D colObj)
+    {
+        if(colObj.gameObject.tag == "fatal")
+            Die();
     }
 }
