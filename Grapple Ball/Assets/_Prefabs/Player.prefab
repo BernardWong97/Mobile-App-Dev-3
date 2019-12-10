@@ -835,6 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemText: {fileID: 0}
+  gemCount: 0
   gemEffectText: {fileID: 0}
   gemAudio: {fileID: 404134035}
   gemEffectObj: {fileID: 0}

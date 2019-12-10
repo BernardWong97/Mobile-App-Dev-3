@@ -21,6 +21,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded;
 
+    private bool canDoubleJump = false;
+
+    private PlayerStatus stats;
+
     // Update is called once per frame
     void Update()
     {
@@ -30,9 +34,23 @@ public class PlayerMovement : MonoBehaviour
     void PlayerMove()
     {
         moveX = Input.GetAxis("Horizontal");
-        if(Input.GetButtonDown("Jump") && isGrounded)
-            Jump();
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (isGrounded)
+            {
+                Jump();
+                canDoubleJump = true;
+            }
+            else
+            {
+                if (canDoubleJump)
+                {
+                    canDoubleJump = false;
+                    DoubleJump();
+                }
+            }
+        }
+
         if (moveX < 0.0f && facingLeft == false)
             FlipPlayer();
         else if (moveX > 0.0f && facingLeft == true)
@@ -47,8 +65,21 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         jumpAudio.Play();
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpForce);
         isGrounded = false;
+    }
+
+    void DoubleJump()
+    {
+        stats = gameObject.GetComponent<PlayerStatus>();
+        if (stats.gemCount >= 20)
+        {
+            jumpAudio.Play();
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+            GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpForce);
+            stats.SpendDouble();
+        }
     }
 
     void FlipPlayer()

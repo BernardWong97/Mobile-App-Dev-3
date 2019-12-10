@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerStatus : MonoBehaviour
 {
     public Text gemText;
-    private int gemCount;
+    public int gemCount;
     private const int maxGem = 80;
     public Text gemEffectText;
     private int gemDifference;
@@ -37,8 +37,17 @@ public class PlayerStatus : MonoBehaviour
 
     void Die()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
         gameOverMenu.SetActive(true);
+    }
+
+    public void SpendDouble()
+    {
+        gemDifference = -20;
+        gemCount -= 20;
+        gemEffectText.text = gemDifference.ToString();
+        gemText.text = gemCount.ToString();
+        setAnimation("Decrease");
     }
 
     private void OnCollisionEnter2D(Collision2D colObj)

@@ -6,21 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelEnd : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public LevelLoader levelLoader;
+    public GameObject eraseCanvas;
+    public GameObject eraseOverlay;
 
     private void OnTriggerEnter2D(Collider2D colObj)
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        eraseCanvas.SetActive(false);
+        eraseOverlay.SetActive(false);
+        levelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
         Debug.Log("Tutorial Complete");
     }
 }
