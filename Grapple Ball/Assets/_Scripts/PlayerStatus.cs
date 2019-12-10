@@ -9,13 +9,18 @@ public class PlayerStatus : MonoBehaviour
 {
     public Text gemText;
     private int gemCount;
+    private const int maxGem = 80;
     public Text gemEffectText;
     private int gemDifference;
     public AudioSource gemAudio;
     public GameObject gemEffectObj;
     private Animator animator;
-    private string currentAnimation = null;
-    
+    public Slider healthBar;
+    public Image fill;
+    private Color MinHealthColor = Color.red;
+    private Color MaxHealthColor = Color.green;
+    public GameObject gameOverMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +30,21 @@ public class PlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.y < -10)
+        fill.color = Color.Lerp(MinHealthColor, MaxHealthColor, healthBar.value / 3);
+        if (gameObject.transform.position.y < -10 || healthBar.value <= 0)
             Die();
     }
 
     void Die()
     {
-        Debug.Log("Player is dead");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
+        gameOverMenu.SetActive(true);
     }
 
     private void OnCollisionEnter2D(Collision2D colObj)
     {
-        if(colObj.gameObject.tag == "fatal")
-            Die();
+        if (colObj.gameObject.tag == "fatal")
+            healthBar.value -= 1;
     }
 
     private void OnTriggerEnter2D(Collider2D colObj)
@@ -46,10 +52,19 @@ public class PlayerStatus : MonoBehaviour
         if (colObj.gameObject.tag == "gem")
         {
             gemAudio.Play();
-            gemDifference = 5;
-            gemCount += 5;
+            if (gemCount < maxGem)
+            {
+                gemDifference = 5;
+                gemCount += 5;
+                gemEffectText.text = "+" + gemDifference;
+            }
+            else
+            {
+                gemDifference = 0;
+                gemCount = 80;
+                gemEffectText.text = "MAX";
+            }
             gemText.text = gemCount.ToString();
-            gemEffectText.text = "+" + gemDifference;
             setAnimation("Increase");
             Destroy(colObj.gameObject);
         }

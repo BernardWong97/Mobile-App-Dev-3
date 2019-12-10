@@ -838,6 +838,9 @@ MonoBehaviour:
   gemEffectText: {fileID: 0}
   gemAudio: {fileID: 404134035}
   gemEffectObj: {fileID: 0}
+  healthBar: {fileID: 0}
+  fill: {fileID: 0}
+  gameOverMenu: {fileID: 0}
 --- !u!1 &2600259316600527667
 GameObject:
   m_ObjectHideFlags: 0
