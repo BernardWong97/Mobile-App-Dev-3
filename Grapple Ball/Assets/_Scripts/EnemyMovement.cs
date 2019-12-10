@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         if(isTurret)
-            InvokeRepeating("Shoot", 0.2f, 1.0f);
+            InvokeRepeating("Shoot", 0.2f, 2.0f);
     }
 
     // Update is called once per frame

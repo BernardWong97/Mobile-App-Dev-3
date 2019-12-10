@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int playerJumpForce = 1250;
 
+    public Animator animator;
+
     private bool facingLeft = false;
 
     private float moveX;
@@ -34,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
         
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed,
                                                                     gameObject.GetComponent<Rigidbody2D>().velocity.y);
+        
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
     void Jump()
