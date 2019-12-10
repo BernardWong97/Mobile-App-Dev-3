@@ -37,8 +37,8 @@ public class PlayerStatus : MonoBehaviour
 
     void Die()
     {
-        Time.timeScale = 0f;
         gameOverMenu.SetActive(true);
+        Destroy(gameObject);
     }
 
     public void SpendDouble()
@@ -53,7 +53,11 @@ public class PlayerStatus : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D colObj)
     {
         if (colObj.gameObject.tag == "fatal")
+        {
             healthBar.value -= 1;
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * 800);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D colObj)

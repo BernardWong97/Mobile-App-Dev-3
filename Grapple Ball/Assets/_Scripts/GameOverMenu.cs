@@ -9,7 +9,6 @@ public class GameOverMenu : MonoBehaviour
 
     public void Retry()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -21,7 +20,6 @@ public class GameOverMenu : MonoBehaviour
 
     public void NavToMenu()
     {
-        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
