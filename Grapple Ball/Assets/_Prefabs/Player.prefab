@@ -170,7 +170,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5382985525433316984, guid: 786f043c285bed4439d3ff1592b7feeb,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ad5ff58b23300c34cb256556b4ca9132, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 21551e6d7e5511e4bbd0a74c7240fd2f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -298,7 +298,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5382985525433316984, guid: 786f043c285bed4439d3ff1592b7feeb,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ca41debb236950f4f929b133a95805d5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3e2f1d050042c374e94d3d8313f6805b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -526,10 +526,10 @@ GameObject:
   - component: {fileID: 2600259316557606837}
   - component: {fileID: 2600259316557606838}
   - component: {fileID: 2600259316557606839}
-  - component: {fileID: 2600259316557606840}
   - component: {fileID: 2600259316557606842}
   - component: {fileID: 2600259316557606834}
   - component: {fileID: 2600259316557606841}
+  - component: {fileID: 1324414436}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -687,21 +687,7 @@ MonoBehaviour:
   playerJumpForce: 1250
   animator: {fileID: 2600259316557606836}
   jumpAudio: {fileID: 93390881}
-  gemAudio: {fileID: 404134035}
   itemAudio: {fileID: 1243810929}
---- !u!114 &2600259316557606840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2600259316557606843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1abe01c444ea534483444667dbe6350, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
 --- !u!120 &2600259316557606842
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -836,6 +822,22 @@ MonoBehaviour:
   ropeLayerMask:
     serializedVersion: 2
     m_Bits: 2049
+--- !u!114 &1324414436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2600259316557606843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce1a8ae82334fd49a2ace7e482e53d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemText: {fileID: 0}
+  gemEffectText: {fileID: 0}
+  gemAudio: {fileID: 404134035}
+  gemEffectObj: {fileID: 0}
 --- !u!1 &2600259316600527667
 GameObject:
   m_ObjectHideFlags: 0

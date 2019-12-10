@@ -13,8 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource jumpAudio;
 
-    public AudioSource gemAudio;
-
     public AudioSource itemAudio;
 
     private bool facingLeft = false;

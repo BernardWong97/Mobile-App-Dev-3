@@ -15,8 +15,8 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="MenuRope.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
-          <e p="PlayerHealth.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
+          <e p="PlayerStatus.cs" t="Include" />
           <e p="RopeController.cs" t="Include" />
           <e p="SettingsMenu.cs" t="Include" />
         </e>
