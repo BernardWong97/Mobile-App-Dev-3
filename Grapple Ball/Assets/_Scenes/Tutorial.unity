@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -426,12 +427,103 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &720503179 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2600259316557606836, guid: 7d070de76aad9534b8e1369f7ea8ba89,
-    type: 3}
-  m_PrefabInstance: {fileID: 2600259317200514623}
+--- !u!82 &519420033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3624944267927517699, guid: 786f043c285bed4439d3ff1592b7feeb,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 42474fdf16ef50c46bd2fd0cc63cc6b7, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &939975287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5469,11 +5561,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1194767452}
     m_Modifications:
-    - target: {fileID: 2600259316557606839, guid: 7d070de76aad9534b8e1369f7ea8ba89,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 720503179}
     - target: {fileID: 2600259316557606843, guid: 7d070de76aad9534b8e1369f7ea8ba89,
         type: 3}
       propertyPath: m_Name
@@ -5482,12 +5569,12 @@ PrefabInstance:
     - target: {fileID: 2600259316840807518, guid: 7d070de76aad9534b8e1369f7ea8ba89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -637.00006
+      value: -914
       objectReference: {fileID: 0}
     - target: {fileID: 2600259316840807518, guid: 7d070de76aad9534b8e1369f7ea8ba89,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: -58
       objectReference: {fileID: 0}
     - target: {fileID: 2600259316840807518, guid: 7d070de76aad9534b8e1369f7ea8ba89,
         type: 3}
@@ -5732,6 +5819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261872774578597209, guid: ddfa73ecf6059364ba36aae20230fa1b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -124.40765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddfa73ecf6059364ba36aae20230fa1b, type: 3}

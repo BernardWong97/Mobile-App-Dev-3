@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         if(isTurret)
-            InvokeRepeating("Shoot", 0.2f, 2.0f);
+            InvokeRepeating("Shoot", 1.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -53,6 +53,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Shoot()
     {
+        gameObject.GetComponent<AudioSource>().Play();
         GameObject bullet = Instantiate(bulletObj);
         bullet.transform.position = gameObject.transform.position;
     }

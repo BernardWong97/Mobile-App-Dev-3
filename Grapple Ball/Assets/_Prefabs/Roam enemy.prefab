@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3833189675877733457}
   - component: {fileID: 3833189675877733456}
   - component: {fileID: 3833189675877733463}
+  - component: {fileID: 960271802}
   m_Layer: 2
   m_Name: Roam enemy
   m_TagString: fatal
@@ -146,3 +147,22 @@ MonoBehaviour:
   facingLeft: 0
   isTurret: 0
   bulletObj: {fileID: 0}
+--- !u!95 &960271802
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833189675877733462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3374d587439986b418abceb6ec3f72e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

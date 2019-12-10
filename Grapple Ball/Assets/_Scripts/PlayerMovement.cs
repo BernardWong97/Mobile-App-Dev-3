@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource jumpAudio;
+
+    public AudioSource gemAudio;
+
+    public AudioSource itemAudio;
+
     private bool facingLeft = false;
 
     private float moveX;
@@ -42,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        jumpAudio.Play();
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpForce);
         isGrounded = false;
     }

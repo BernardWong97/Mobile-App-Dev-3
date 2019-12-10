@@ -9,6 +9,7 @@ public class RopeController : MonoBehaviour
 {
     public GameObject ropeHingeAnchor;
     public DistanceJoint2D ropeJoint;
+    public AudioSource grappleAudio;
     private bool ropeAttached;
     private Vector2 playerPosition;
     private Rigidbody2D ropeHingeAnchorRb;
@@ -72,6 +73,7 @@ public class RopeController : MonoBehaviour
             
         if (hit.collider != null)
         {
+            grappleAudio.Play();
             ropeAttached = true;
             if (!ropePositions.Contains(hit.point))
             {
