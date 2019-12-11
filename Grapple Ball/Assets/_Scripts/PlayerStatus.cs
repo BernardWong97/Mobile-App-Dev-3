@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour {
@@ -18,6 +20,7 @@ public class PlayerStatus : MonoBehaviour {
 	private bool isGemMax = false;
 	private bool isHealthMax = true;
 	public int health;
+	private bool isInvul = false;
 
 	// Start is called before the first frame update
 	private void Start() {
@@ -65,12 +68,20 @@ public class PlayerStatus : MonoBehaviour {
 		SetAnimation("Decrease");
 	}
 
+	IEnumerator Invul() {
+		isInvul = true;
+		yield return new WaitForSeconds(1);
+		isInvul = false;
+	}
+	
 	private void OnCollisionEnter2D(Collision2D colObj) {
-		if (colObj.gameObject.CompareTag("fatal")) {
+		if (colObj.gameObject.CompareTag("fatal") && !isInvul) {
 			healthBar.value -= 1;
 			isHealthMax = false;
 			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
 			gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * 800);
+			GetComponent<Animator>().SetTrigger("Hurt");
+			StartCoroutine(Invul());
 		}
 	}
 

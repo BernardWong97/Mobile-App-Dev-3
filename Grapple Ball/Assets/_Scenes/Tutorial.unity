@@ -7047,6 +7047,26 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 402381772}
+    - target: {fileID: 2600259316557606835, guid: 7d070de76aad9534b8e1369f7ea8ba89,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600259316557606835, guid: 7d070de76aad9534b8e1369f7ea8ba89,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600259316557606835, guid: 7d070de76aad9534b8e1369f7ea8ba89,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600259316557606835, guid: 7d070de76aad9534b8e1369f7ea8ba89,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2600259316557606843, guid: 7d070de76aad9534b8e1369f7ea8ba89,
         type: 3}
       propertyPath: m_Name
