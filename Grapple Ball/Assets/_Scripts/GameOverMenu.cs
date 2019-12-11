@@ -1,25 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverMenu : MonoBehaviour
-{
-    public GameObject menuUI;
+public class GameOverMenu : MonoBehaviour {
+	public GameObject menuUI;
 
-    public void Retry()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+	public void Retry() {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 
-    public void QuitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
+	public void QuitGame() {
+		Debug.Log("Quit");
+		Application.Quit();
+	}
 
-    public void NavToMenu()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
+	public void NavToMenu() {
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+	}
 }

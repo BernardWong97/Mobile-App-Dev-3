@@ -683,11 +683,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732a861ef1094e64998dec0bd5b37ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
-  playerJumpForce: 1250
   animator: {fileID: 2600259316557606836}
-  jumpAudio: {fileID: 93390881}
+  canDoubleJump: 0
   itemAudio: {fileID: 1243810929}
+  jumpAudio: {fileID: 93390881}
+  playerJumpForce: 1250
+  playerSpeed: 5
 --- !u!120 &2600259316557606842
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -815,13 +816,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64843c2dbf5308942b759cac5cc5f820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grappleAudio: {fileID: 1314691890}
   ropeHingeAnchor: {fileID: 2600259316600527667}
   ropeJoint: {fileID: 2600259316557606834}
-  grappleAudio: {fileID: 1314691890}
-  ropeRenderer: {fileID: 2600259316557606842}
   ropeLayerMask:
     serializedVersion: 2
     m_Bits: 2049
+  ropeRenderer: {fileID: 2600259316557606842}
 --- !u!114 &1324414436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,14 +835,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce1a8ae82334fd49a2ace7e482e53d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gemText: {fileID: 0}
-  gemCount: 0
-  gemEffectText: {fileID: 0}
-  gemAudio: {fileID: 404134035}
-  gemEffectObj: {fileID: 0}
-  healthBar: {fileID: 0}
   fill: {fileID: 0}
   gameOverMenu: {fileID: 0}
+  gemAudio: {fileID: 404134035}
+  gemCount: 0
+  gemEffectObj: {fileID: 0}
+  gemEffectText: {fileID: 0}
+  gemText: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1 &2600259316600527667
 GameObject:
   m_ObjectHideFlags: 0

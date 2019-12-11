@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 0}
-  slider: {fileID: 0}
   progressText: {fileID: 0}
+  slider: {fileID: 0}

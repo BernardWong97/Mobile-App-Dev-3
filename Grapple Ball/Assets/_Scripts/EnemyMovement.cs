@@ -1,60 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
-{
-    public int enemySpeed = 5;
+public class EnemyMovement : MonoBehaviour {
+	private int _xMove;
 
-    public bool facingLeft = false;
+	public GameObject bulletObj;
+	public int enemySpeed = 5;
 
-    public bool isTurret = false;
+	public bool facingLeft;
 
-    public GameObject bulletObj;
-    
-    private int _xMove;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        if(isTurret)
-            InvokeRepeating("Shoot", 1.0f, 2.0f);
-    }
+	public bool isTurret;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isTurret)
-        {
-            if (facingLeft)
-                _xMove = -1;
-            else
-                _xMove = 1;
-        
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(_xMove, 0));
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_xMove, 0) * enemySpeed;
+	// Start is called before the first frame update
+	private void Start() {
+		if (isTurret)
+			InvokeRepeating("Shoot", 1.0f, 2.0f);
+	}
 
-            if (hit.distance < 0.7f)
-                Flip();
-        }
-    }
+	// Update is called once per frame
+	private void Update() {
+		if (!isTurret) {
+			if (facingLeft)
+				_xMove = -1;
+			else
+				_xMove = 1;
 
-    void Flip()
-    {
-        Vector2 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
+			var hit = Physics2D.Raycast(transform.position, new Vector2(_xMove, 0));
+			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_xMove, 0) * enemySpeed;
 
-        if (facingLeft)
-            facingLeft = false;
-        else
-            facingLeft = true;
-    }
+			if (hit.distance < 0.7f)
+				Flip();
+		}
+	}
 
-    void Shoot()
-    {
-        gameObject.GetComponent<AudioSource>().Play();
-        GameObject bullet = Instantiate(bulletObj);
-        bullet.transform.position = gameObject.transform.position;
-    }
+	private void Flip() {
+		Vector2 localScale = gameObject.transform.localScale;
+		localScale.x *= -1;
+		transform.localScale = localScale;
+
+		if (facingLeft)
+			facingLeft = false;
+		else
+			facingLeft = true;
+	}
+
+	private void Shoot() {
+		gameObject.GetComponent<AudioSource>().Play();
+		var bullet = Instantiate(bulletObj);
+		bullet.transform.position = gameObject.transform.position;
+	}
 }

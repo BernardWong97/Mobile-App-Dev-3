@@ -1,98 +1,108 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    public int playerSpeed = 1;
+public class PlayerMovement : MonoBehaviour {
+	public Animator animator;
 
-    public int playerJumpForce = 1250;
+	public bool canDoubleJump;
 
-    public Animator animator;
+	private bool facingLeft;
 
-    public AudioSource jumpAudio;
+	private bool isGrounded;
 
-    public AudioSource itemAudio;
+	public AudioSource itemAudio;
 
-    private bool facingLeft = false;
+	public AudioSource jumpAudio;
 
-    private float moveX;
+	private float moveX;
 
-    private bool isGrounded;
+	public int playerJumpForce = 1250;
+	public int playerSpeed = 1;
+	private Rigidbody2D rigid2d;
 
-    private bool canDoubleJump = false;
+	private PlayerStatus stats;
 
-    private PlayerStatus stats;
+	private void Start() {
+		rigid2d = GetComponent<Rigidbody2D>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        PlayerMove();
-    }
+	// Update is called once per frame
+	private void Update() {
+		PlayerMove();
+	}
 
-    void PlayerMove()
-    {
-        moveX = Input.GetAxis("Horizontal");
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (isGrounded)
-            {
-                Jump();
-                canDoubleJump = true;
-            }
-            else
-            {
-                if (canDoubleJump)
-                {
-                    canDoubleJump = false;
-                    DoubleJump();
-                }
-            }
-        }
+	private void PlayerMove() {
+		moveX = Input.GetAxis("Horizontal");
 
-        if (moveX < 0.0f && facingLeft == false)
-            FlipPlayer();
-        else if (moveX > 0.0f && facingLeft == true)
-            FlipPlayer();
-        
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed,
-                                                                    gameObject.GetComponent<Rigidbody2D>().velocity.y);
-        
-        animator.SetFloat("Speed", Mathf.Abs(moveX));
-    }
+		if (Input.GetButtonDown("Jump")) {
+			if (isGrounded) {
+				Jump();
+				canDoubleJump = true;
+			}
+			else {
+				if (canDoubleJump) {
+					canDoubleJump = false;
+					DoubleJump();
+				}
+			}
+		}
 
-    void Jump()
-    {
-        jumpAudio.Play();
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpForce);
-        isGrounded = false;
-    }
+		if (Input.GetKeyDown(KeyCode.K))
+			StartCoroutine(Teleport());
 
-    void DoubleJump()
-    {
-        stats = gameObject.GetComponent<PlayerStatus>();
-        if (stats.gemCount >= 20)
-        {
-            jumpAudio.Play();
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
-            GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpForce);
-            stats.SpendDouble();
-        }
-    }
+		if (moveX < 0.0f && facingLeft == false)
+			FlipPlayer();
+		else if (moveX > 0.0f && facingLeft)
+			FlipPlayer();
 
-    void FlipPlayer()
-    {
-        facingLeft = !facingLeft;
-        Vector2 localScale = gameObject.transform.localScale;
-        localScale.x *= -1;
-        transform.localScale = localScale;
-    }
+		rigid2d.velocity = new Vector2(moveX * playerSpeed, rigid2d.velocity.y);
 
-    private void OnCollisionEnter2D (Collision2D colObj)
-    {
-        if (colObj.gameObject.tag == "ground")
-            isGrounded = true;
-    }
+		animator.SetFloat("Speed", Mathf.Abs(moveX));
+	}
+
+	private void Jump() {
+		jumpAudio.Play();
+		rigid2d.velocity = new Vector2(rigid2d.velocity.x, 0);
+		rigid2d.AddForce(Vector2.up * playerJumpForce);
+		isGrounded = false;
+	}
+
+	private void DoubleJump() {
+		stats = gameObject.GetComponent<PlayerStatus>();
+
+		if (stats.gemCount >= 20) {
+			jumpAudio.Play();
+			rigid2d.velocity = new Vector2(rigid2d.velocity.x, 0);
+			rigid2d.AddForce(Vector2.up * playerJumpForce);
+			stats.SpendDouble();
+		}
+	}
+
+	private IEnumerator Teleport() {
+		stats = gameObject.GetComponent<PlayerStatus>();
+
+		if (stats.gemCount >= 50) {
+			rigid2d.gravityScale = 0;
+			rigid2d.velocity = Vector2.zero;
+			GetComponent<Transform>().position += transform.up * 2.5f;
+			stats.SpendTeleport();
+			
+			yield return new WaitForSeconds(1);
+			
+			jumpAudio.Play();
+			rigid2d.gravityScale = 8;
+		}
+	}
+
+	private void FlipPlayer() {
+		facingLeft = !facingLeft;
+		Vector2 localScale = gameObject.transform.localScale;
+		localScale.x *= -1;
+		transform.localScale = localScale;
+	}
+
+	private void OnCollisionEnter2D(Collision2D colObj) {
+		if (colObj.gameObject.CompareTag("ground"))
+			isGrounded = true;
+	}
 }

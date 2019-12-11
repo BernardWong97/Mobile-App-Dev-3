@@ -1,32 +1,22 @@
-﻿using System;
-using System.Collections;
+﻿using UnityEngine;
 
-using System.Collections.Generic;
+public class MenuRope : MonoBehaviour {
+	public GameObject ball;
 
-using UnityEngine;
+	public LineRenderer lineRenderer;
+	public GameObject plane;
 
+	private void Update() {
+		CreateRope();
+	}
 
+	private void CreateRope() {
+		var planePosition = plane.transform.position;
+		var ballPosition = ball.transform.position;
 
-public class MenuRope : MonoBehaviour
-{
-    public GameObject ball;
-    public GameObject plane;
-
-    public LineRenderer lineRenderer;
-
-    private void Update()
-    {
-        CreateRope();
-    }
-
-    private void CreateRope()
-    {
-        Vector3 planePosition = plane.transform.position;
-        Vector3 ballPosition = ball.transform.position;
-        
-        lineRenderer.enabled = true;
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, ballPosition);
-        lineRenderer.SetPosition(1, planePosition);
-    }
+		lineRenderer.enabled = true;
+		lineRenderer.positionCount = 2;
+		lineRenderer.SetPosition(0, ballPosition);
+		lineRenderer.SetPosition(1, planePosition);
+	}
 }

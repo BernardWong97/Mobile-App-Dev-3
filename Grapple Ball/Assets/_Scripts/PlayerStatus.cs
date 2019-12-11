@@ -1,92 +1,105 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStatus : MonoBehaviour
-{
-    public Text gemText;
-    public int gemCount;
-    private const int maxGem = 80;
-    public Text gemEffectText;
-    private int gemDifference;
-    public AudioSource gemAudio;
-    public GameObject gemEffectObj;
-    private Animator animator;
-    public Slider healthBar;
-    public Image fill;
-    private Color MinHealthColor = Color.red;
-    private Color MaxHealthColor = Color.green;
-    public GameObject gameOverMenu;
+public class PlayerStatus : MonoBehaviour {
+	private const int maxGem = 80;
+	private readonly Color MaxHealthColor = Color.green;
+	private readonly Color MinHealthColor = Color.red;
+	private Animator animator;
+	public Image fill;
+	public GameObject gameOverMenu;
+	public AudioSource gemAudio;
+	public int gemCount;
+	private int gemDifference;
+	public GameObject gemEffectObj;
+	public Text gemEffectText;
+	public Text gemText;
+	public Slider healthBar;
+	private bool isGemMax = false;
+	private bool isHealthMax = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        gemCount = int.Parse(gemText.text);
-    }
+	// Start is called before the first frame update
+	private void Start() {
+		gemCount = int.Parse(gemText.text);
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        fill.color = Color.Lerp(MinHealthColor, MaxHealthColor, healthBar.value / 3);
-        if (gameObject.transform.position.y < -10 || healthBar.value <= 0)
-            Die();
-    }
+	// Update is called once per frame
+	private void Update() {
+		fill.color = Color.Lerp(MinHealthColor, MaxHealthColor, healthBar.value / 3);
+		
+		if(isGemMax && !isHealthMax)
+			gainHealth();
 
-    void Die()
-    {
-        gameOverMenu.SetActive(true);
-        Destroy(gameObject);
-    }
+		if (gameObject.transform.position.y < -10 || healthBar.value <= 0)
+			Die();
+	}
 
-    public void SpendDouble()
-    {
-        gemDifference = -20;
-        gemCount -= 20;
-        gemEffectText.text = gemDifference.ToString();
-        gemText.text = gemCount.ToString();
-        setAnimation("Decrease");
-    }
+	private void Die() {
+		healthBar.value = 0;
+		isHealthMax = false;
+		gameOverMenu.SetActive(true);
+		Destroy(gameObject);
+	}
 
-    private void OnCollisionEnter2D(Collision2D colObj)
-    {
-        if (colObj.gameObject.tag == "fatal")
-        {
-            healthBar.value -= 1;
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * 800);
-        }
-    }
+	public void SpendDouble() {
+		spendGem(20);
+	}
 
-    private void OnTriggerEnter2D(Collider2D colObj)
-    {
-        if (colObj.gameObject.tag == "gem")
-        {
-            gemAudio.Play();
-            if (gemCount < maxGem)
-            {
-                gemDifference = 5;
-                gemCount += 5;
-                gemEffectText.text = "+" + gemDifference;
-            }
-            else
-            {
-                gemDifference = 0;
-                gemCount = 80;
-                gemEffectText.text = "MAX";
-            }
-            gemText.text = gemCount.ToString();
-            setAnimation("Increase");
-            Destroy(colObj.gameObject);
-        }
-            
-    }
-    
-    void setAnimation(string stringInput){
-        animator = gemEffectObj.GetComponent<Animator>();
-        animator.ResetTrigger(stringInput);
-        animator.SetTrigger(stringInput);
-    }
+	public void SpendTeleport() {
+		spendGem(50);
+	}
+
+	public void gainHealth() {
+		spendGem(80);
+		healthBar.value = healthBar.maxValue;
+		isGemMax = false;
+	}
+
+	private void spendGem(int gem) {
+		isGemMax = false;
+		gemDifference = gem;
+		gemCount -= gem;
+		gemEffectText.text = "-" + gemDifference.ToString();
+		gemText.text = gemCount.ToString();
+		SetAnimation("Decrease");
+	}
+
+	private void OnCollisionEnter2D(Collision2D colObj) {
+		if (colObj.gameObject.CompareTag("fatal")) {
+			healthBar.value -= 1;
+			isHealthMax = false;
+			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+			gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * 800);
+		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D colObj) {
+		if (colObj.gameObject.CompareTag("gem")) {
+			gemAudio.Play();
+
+			if (gemCount < maxGem) {
+				gemDifference = 5;
+				gemCount += 5;
+				gemEffectText.text = "+" + gemDifference;
+			}
+			else {
+				gemDifference = 0;
+				gemCount = 80;
+				gemEffectText.text = "MAX";
+			}
+			
+			if(gemCount == 80)
+				isGemMax = true;
+
+			gemText.text = gemCount.ToString();
+			SetAnimation("Increase");
+			Destroy(colObj.gameObject);
+		}
+	}
+
+	private void SetAnimation(string stringInput) {
+		animator = gemEffectObj.GetComponent<Animator>();
+		animator.ResetTrigger(stringInput);
+		animator.SetTrigger(stringInput);
+	}
 }

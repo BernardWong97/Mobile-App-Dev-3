@@ -1,59 +1,48 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
-{
-    public static bool IsPaused = false;
+public class PauseMenu : MonoBehaviour {
+	public static bool IsPaused;
 
-    public GameObject menuUI;
+	public GameObject menuUI;
 
-    public GameObject settingsUI;
-    
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (IsPaused)
-                Resume();
-            else
-                Pause();
-        }
-    }
+	public GameObject settingsUI;
 
-    public void Resume()
-    {
-        if (settingsUI.activeSelf)
-        {
-            settingsUI.SetActive(false);
-            Pause();
-        }
-        else
-        {
-            menuUI.SetActive(false);
-            Time.timeScale = 1f;
-            IsPaused = false;
-        }
-    }
+	// Update is called once per frame
+	private void Update() {
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			if (IsPaused)
+				Resume();
+			else
+				Pause();
+		}
+	}
 
-    void Pause()
-    {
-        menuUI.SetActive(true);
-        Time.timeScale = 0f;
-        IsPaused = true;
-    }
+	public void Resume() {
+		if (settingsUI.activeSelf) {
+			settingsUI.SetActive(false);
+			Pause();
+		}
+		else {
+			menuUI.SetActive(false);
+			Time.timeScale = 1f;
+			IsPaused = false;
+		}
+	}
 
-    public void QuitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
+	private void Pause() {
+		menuUI.SetActive(true);
+		Time.timeScale = 0f;
+		IsPaused = true;
+	}
 
-    public void NavToMenu()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
+	public void QuitGame() {
+		Debug.Log("Quit");
+		Application.Quit();
+	}
+
+	public void NavToMenu() {
+		Time.timeScale = 1f;
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+	}
 }

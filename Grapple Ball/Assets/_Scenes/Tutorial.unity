@@ -240,9 +240,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e99ea192093c3b479d2fe495ecdeaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLoader: {fileID: 1675486499}
   eraseCanvas: {fileID: 1194767448}
   eraseOverlay: {fileID: 1818499375}
+  levelLoader: {fileID: 1675486499}
 --- !u!1001 &184615404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -257,14 +257,14 @@ PrefabInstance:
       objectReference: {fileID: 3486239828965484447}
     - target: {fileID: 1613323008157524512, guid: f1eb8da0ede4e624192e74d310d5c0cf,
         type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 3486239828965484446}
-    - target: {fileID: 1613323008157524512, guid: f1eb8da0ede4e624192e74d310d5c0cf,
-        type: 3}
       propertyPath: progressText
       value: 
       objectReference: {fileID: 3486239828965484445}
+    - target: {fileID: 1613323008157524512, guid: f1eb8da0ede4e624192e74d310d5c0cf,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 3486239828965484446}
     - target: {fileID: 1613323008157524513, guid: f1eb8da0ede4e624192e74d310d5c0cf,
         type: 3}
       propertyPath: m_Name
@@ -983,10 +983,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc649924749b47b44843bae7e1064616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMin: -0.5
-  yMin: 0
   xMax: 38
+  xMin: -0.5
   yMax: 0
+  yMin: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -7024,22 +7024,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1194767452}
     m_Modifications:
     - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
-      propertyPath: gemText
-      value: 
-      objectReference: {fileID: 1230942058}
-    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
-      propertyPath: gemEffectText
-      value: 
-      objectReference: {fileID: 752614945}
-    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
-      propertyPath: gemEffectObj
-      value: 
-      objectReference: {fileID: 752614942}
-    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 402381772}
-    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
       propertyPath: fill
       value: 
       objectReference: {fileID: 905434073}
@@ -7047,6 +7031,22 @@ PrefabInstance:
       propertyPath: gameOverMenu
       value: 
       objectReference: {fileID: 1031466937}
+    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
+      propertyPath: gemEffectObj
+      value: 
+      objectReference: {fileID: 752614942}
+    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
+      propertyPath: gemEffectText
+      value: 
+      objectReference: {fileID: 752614945}
+    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
+      propertyPath: gemText
+      value: 
+      objectReference: {fileID: 1230942058}
+    - target: {fileID: 1324414436, guid: 7d070de76aad9534b8e1369f7ea8ba89, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 402381772}
     - target: {fileID: 2600259316557606843, guid: 7d070de76aad9534b8e1369f7ea8ba89,
         type: 3}
       propertyPath: m_Name
