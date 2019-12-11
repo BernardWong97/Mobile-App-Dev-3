@@ -9,6 +9,7 @@
         <e p="_Scripts" t="Include">
           <e p="Bullet.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
+          <e p="DataManagement.cs" t="Include" />
           <e p="EnemyMovement.cs" t="Include" />
           <e p="GameOverMenu.cs" t="Include" />
           <e p="LevelEnd.cs" t="Include" />
@@ -16,6 +17,7 @@
           <e p="MainMenu.cs" t="Include" />
           <e p="MenuRope.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
+          <e p="PlayerData.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="PlayerStatus.cs" t="Include" />
           <e p="RopeController.cs" t="Include" />

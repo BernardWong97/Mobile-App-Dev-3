@@ -17,6 +17,7 @@ public class PlayerStatus : MonoBehaviour {
 	public Slider healthBar;
 	private bool isGemMax = false;
 	private bool isHealthMax = true;
+	public int health;
 
 	// Start is called before the first frame update
 	private void Start() {
@@ -101,5 +102,16 @@ public class PlayerStatus : MonoBehaviour {
 		animator = gemEffectObj.GetComponent<Animator>();
 		animator.ResetTrigger(stringInput);
 		animator.SetTrigger(stringInput);
+	}
+
+	public void SavePlayer() {
+		DataManagement.SaveData(this);
+	}
+
+	public void LoadPlayer() {
+		PlayerData data = DataManagement.LoadData();
+
+		health = data.playerHealth;
+		gemCount = data.playerGemCount;
 	}
 }

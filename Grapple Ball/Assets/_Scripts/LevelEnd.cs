@@ -7,6 +7,7 @@ public class LevelEnd : MonoBehaviour {
 	public LevelLoader levelLoader;
 
 	private void OnTriggerEnter2D(Collider2D colObj) {
+		colObj.GetComponent<PlayerStatus>().SavePlayer();
 		eraseCanvas.SetActive(false);
 		eraseOverlay.SetActive(false);
 		levelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
