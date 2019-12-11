@@ -82,9 +82,21 @@ public class PlayerMovement : MonoBehaviour {
 		stats = gameObject.GetComponent<PlayerStatus>();
 
 		if (stats.gemCount >= 50) {
+
 			rigid2d.gravityScale = 0;
 			rigid2d.velocity = Vector2.zero;
-			GetComponent<Transform>().position += transform.up * 2.5f;
+			LayerMask mask = LayerMask.GetMask("Default");
+			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up, 3f, mask);
+
+			if (hit.collider == null) {
+				GetComponent<Transform>().position += transform.up * 2.5f;
+			}
+			else {
+				float distOffsetY = GetComponent<BoxCollider2D>().size.y / 2 - GetComponent<BoxCollider2D>().offset.y;
+					GetComponent<Transform>().position = new Vector3(hit.point.x, hit.point.y - distOffsetY);
+			}
+
+
 			stats.SpendTeleport();
 			
 			yield return new WaitForSeconds(1);
