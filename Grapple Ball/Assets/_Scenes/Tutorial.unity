@@ -240,12 +240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e99ea192093c3b479d2fe495ecdeaa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 519420028}
+  compelteUI: {fileID: 1616036903}
   eraseCanvas: {fileID: 1194767448}
   eraseOverlay: {fileID: 1818499375}
-  compelteUI: {fileID: 1616036903}
-  camera: {fileID: 519420028}
-  levelLoader: {fileID: 1675486499}
   levelCompleteAudio: {fileID: 1415154421}
+  levelLoader: {fileID: 1675486499}
 --- !u!1001 &184615404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1190,7 +1190,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
