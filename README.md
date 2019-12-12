@@ -1,97 +1,43 @@
-# Fitness Companion Application
+# Grapple Ball
 
-An application that helps user keep track of their nutrition values throughout
-the day.
+This is a game about a mechanical ball with a grappling hook that traverse
+ through difficult terrain to collect machine parts. There is a hamster inside trying to collect 
+ specific machine parts to build a Rocket and eventually reunite with their family.
 
 ## Getting Started
-
-Clone this git repo to download the program's solution file.
 
 ### Prerequisites
 
 ```
-- Visual Studio 2017 (Xamarin Forms, Newtonsoft.Json Dependency)
-- Android device with at least version 5.0 (Lollipop)
-- Any Window device
+Windows 10
 ```
 
 ### Installing
 
-- Go to the downloaded folder and go into the main folder.
-- In each folder delete the "bin" and "obj" folder.
-- Open the "sln" file using Visual Studio.
-- Build the solution to ensure no errors.
+- Go to the [releases](https://github.com/BernardWong97/Mobile-App-Dev-3/releases) of the repository.
+- Download release folder "Grapple.Ball.zip".
+- Extract the folder anywhere.
 
-For Window device
-```
-- Run the UWP version from Visual Studio.
-- It will build and install onto the computer.
-```
+## Instruction
+- Navigate into the extracted folder.
+- Launch "Grapple Ball.exe".
+- Click play to play the game.
 
-For Android device
-```
-- Enable USB debugging on the device.
-- Connect device to computer using USB.
-- Run Android version from Visual Studio.
-- It will build and install onto the Android device.
-```
+## References
 
-## Usage
-
-The app is fairly simple to use.
-
-### Pages
-Login Page
-```
-- Simple login page with username and password input.
-- Register button to register if no account available.
-- Login with an account.
-- Default account are username: "admin" password: "admin".
-```
-
-Tracker Page
-```
-- Track user nutrition values.
-- Click "Add Intake" button in any meal (Breakfast/Lunch etc.).
-- Add all details about an intake.
-- The intake was added to the Tracker with calculated totals.
-- Also shown daily totals/ user goals and remaining values.
-```
-
-BMI Page
-```
-- Calculate BMI from weight and height.
-- Default value is user account's weight and height.
-- Input and press "Calculate" button to get result.
-```
-
-Account Page
-```
-- A page where user can change account parameters.
-- Height/Weight/Goals are Bind with INotifyPropertyChanged.
-```
-
-About Page
-```
-- Just a simple page describing the application.
-```
-## Warning
-
-There are still [issues](https://github.com/BernardWong97/Fitness-Companion/issues) on the application.
-
-## Researches
-
-These are the references/researches to help build the program:
-- [Simplifying MVVM INotifyPropertyChanged On Xamarin.Forms](https://www.c-sharpcorner.com/article/simplifying-mvvm-inotifypropertychanged-on-xamarin-forms/)
-- [Page.OnAppearing Method](https://docs.microsoft.com/en-us/dotnet/api/xamarin.forms.page.onappearing?view=xamarin-forms)
-- [Configure App Icons in Xamarin Forms App](https://www.codeproject.com/Articles/1106631/Configure-App-Icons-in-Xamarin-Forms-App)
-- [Xamarin.Forms Entry](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/entry)
-- [Xamarin.Forms Tabbed Page](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/navigation/tabbed-page)
-- [Xamarin.Forms ScrollView](https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/layouts/scroll-view)
-- [KeyValuePair](https://www.dotnetperls.com/keyvaluepair)
-- [C# - Dictionary<TKey, TValue>](https://www.tutorialsteacher.com/csharp/csharp-dictionary)
-- [How to change application icon in Xamarin.Forms?](https://stackoverflow.com/questions/37945767/how-to-change-application-icon-in-xamarin-forms)
+These are the references/researches to help build the game:
+#### Blogs
+- [Make a 2D Grappling Hook Game in Unity](https://www.raywenderlich.com/348-make-a-2d-grappling-hook-game-in-unity-part-1)
+- [How to create a swinging rope in Unity](https://www.habrador.com/tutorials/rope/)
+#### Youtube
+- [Unity 2D Basic Rope Swinging Physics](https://www.youtube.com/watch?v=TB9RKZrgGXY)
+- [Brackeys Channel](https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA)
+- [Unity Channel](https://www.youtube.com/channel/UCG08EqOAXJk_YXPDsAvReSg)
+- [Lets Make A Game Together Channel](https://www.youtube.com/channel/UCHhzc_ukN0BXB2aVQBKt89Q/featured)
+#### Unity
+- [Line Renderer - Forum](https://forum.unity.com/threads/line-renderer-newbie.34614/)
+- [Unity Script Reference](https://docs.unity3d.com/ScriptReference/)
+- [Unity Manual](https://docs.unity3d.com/Manual)
 
 ## Author
-
-* **Bernard Wong** (https://github.com/BernardWong97)
+**Bernard Wong** (https://github.com/BernardWong97)
