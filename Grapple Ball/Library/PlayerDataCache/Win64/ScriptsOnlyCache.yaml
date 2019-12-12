@@ -39,7 +39,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -1375,4 +1374,4 @@ ScriptsOnlyBuild:
   - Assets/_Scenes/Level 2.unity
   - Assets/_Scenes/Level 3.unity
   - Assets/_Scenes/End.unity
-  playerPath: D:/GMIT/Year 4/Mobile Applications Development 3/Build/Grapple Ball.exe
+  playerPath: C:/Users/ASUS/Desktop/Grapple Ball/Grapple Ball.exe
