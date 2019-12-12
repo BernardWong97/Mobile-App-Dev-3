@@ -3,15 +3,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/**
+ * Controller handling loading level UI
+ */
 public class LevelLoader : MonoBehaviour {
+	// Public variables
 	public GameObject loadingScreen;
 	public Text progressText;
 	public Slider slider;
 
+	/**
+	 * Execute coroutine on load async function
+	 */
 	public void LoadLevel(int sceneIndex) {
 		StartCoroutine(LoadAsync(sceneIndex));
 	}
 
+	/**
+	 * Load sceneIndex scene while display loading progress asynchronously
+	 */
 	private IEnumerator LoadAsync(int sceneIndex) {
 		var asyncOperation = SceneManager.LoadSceneAsync(sceneIndex);
 
