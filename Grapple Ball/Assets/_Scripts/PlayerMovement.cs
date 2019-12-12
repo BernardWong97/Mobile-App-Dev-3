@@ -107,10 +107,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	private void FlipPlayer() {
+		GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
 		facingLeft = !facingLeft;
-		Vector2 localScale = gameObject.transform.localScale;
-		localScale.x *= -1;
-		transform.localScale = localScale;
 	}
 
 	private void OnCollisionEnter2D(Collision2D colObj) {

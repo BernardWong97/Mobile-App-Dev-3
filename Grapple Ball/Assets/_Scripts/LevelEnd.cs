@@ -7,10 +7,11 @@ public class LevelEnd : MonoBehaviour {
 	public LevelLoader levelLoader;
 
 	private void OnTriggerEnter2D(Collider2D colObj) {
-		colObj.GetComponent<PlayerStatus>().SavePlayer();
+		if (!colObj.CompareTag("Player")) return;
+		colObj.gameObject.GetComponent<PlayerStatus>().SavePlayer();
 		eraseCanvas.SetActive(false);
 		eraseOverlay.SetActive(false);
 		levelLoader.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
-		Debug.Log("Tutorial Complete");
+		Debug.Log("Level Complete");
 	}
 }

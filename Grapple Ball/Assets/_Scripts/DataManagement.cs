@@ -18,6 +18,16 @@ public static class DataManagement {
 		}
 	}
 
+	public static void DeleteData() {
+		try {
+			File.Delete(path);
+		}
+		catch (Exception e) {
+			Debug.LogException(e);
+			throw;
+		}
+	}
+
 	public static PlayerData LoadData() {
 		if (File.Exists(path)) {
 			using (FileStream file = new FileStream(path, FileMode.Open)) {

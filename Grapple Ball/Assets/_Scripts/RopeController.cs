@@ -56,7 +56,7 @@ public class RopeController : MonoBehaviour {
 
 		var hit = Physics2D.Raycast(playerPosition, direction, ropeMaxCastDistance, ropeLayerMask);
 
-		if (hit.collider != null) {
+		if (hit.collider != null && hit.collider.CompareTag("ground")) {
 			grappleAudio.Play();
 			ropeAttached = true;
 			GetComponent<PlayerMovement>().canDoubleJump = false;

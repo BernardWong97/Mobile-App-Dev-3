@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class PlayerData
 {
-	public int playerHealth;
+	public float playerHealth;
 	public int playerGemCount;
 
 	public PlayerData(PlayerStatus player) {

@@ -43,6 +43,7 @@ public class PauseMenu : MonoBehaviour {
 
 	public void NavToMenu() {
 		Time.timeScale = 1f;
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+		SceneManager.LoadScene(0);
+		DataManagement.DeleteData();
 	}
 }

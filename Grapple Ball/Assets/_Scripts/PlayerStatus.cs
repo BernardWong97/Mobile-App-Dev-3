@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour {
@@ -18,28 +19,29 @@ public class PlayerStatus : MonoBehaviour {
 	public Text gemText;
 	public Slider healthBar;
 	private bool isGemMax = false;
-	private bool isHealthMax = true;
-	public int health;
+	private bool isHealthMax;
+	public float health;
 	private bool isInvul = false;
 
 	// Start is called before the first frame update
 	private void Start() {
-		gemCount = int.Parse(gemText.text);
+		if(SceneManager.GetActiveScene().buildIndex > 1)
+			LoadPlayer();
 	}
 
 	// Update is called once per frame
 	private void Update() {
-		fill.color = Color.Lerp(MinHealthColor, MaxHealthColor, healthBar.value / 3);
-		
+		health = healthBar.value;
+		fill.color = Color.Lerp(MinHealthColor, MaxHealthColor, health / 3);
+
 		if(isGemMax && !isHealthMax)
 			gainHealth();
 
-		if (gameObject.transform.position.y < -10 || healthBar.value <= 0)
+		if (gameObject.transform.position.y < -10 || health <= 0)
 			Die();
 	}
 
 	private void Die() {
-		healthBar.value = 0;
 		isHealthMax = false;
 		gameOverMenu.SetActive(true);
 		Destroy(gameObject);
@@ -57,6 +59,7 @@ public class PlayerStatus : MonoBehaviour {
 		spendGem(80);
 		healthBar.value = healthBar.maxValue;
 		isGemMax = false;
+		isHealthMax = true;
 	}
 
 	private void spendGem(int gem) {
@@ -119,10 +122,19 @@ public class PlayerStatus : MonoBehaviour {
 		DataManagement.SaveData(this);
 	}
 
-	public void LoadPlayer() {
+	private void LoadPlayer() {
 		PlayerData data = DataManagement.LoadData();
 
 		health = data.playerHealth;
 		gemCount = data.playerGemCount;
+
+		healthBar.value = health;
+		gemText.text = gemCount.ToString();
+
+		if (health < healthBar.maxValue)
+			isHealthMax = false;
+
+		if (gemCount < maxGem)
+			isGemMax = false;
 	}
 }

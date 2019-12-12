@@ -27,20 +27,14 @@ public class EnemyMovement : MonoBehaviour {
 			var hit = Physics2D.Raycast(transform.position, new Vector2(_xMove, 0));
 			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(_xMove, 0) * enemySpeed;
 
-			if (hit.distance < 0.7f)
+			if (hit.distance < 0.7f && !hit.collider.CompareTag("Player"))
 				Flip();
 		}
 	}
 
 	private void Flip() {
-		Vector2 localScale = gameObject.transform.localScale;
-		localScale.x *= -1;
-		transform.localScale = localScale;
-
-		if (facingLeft)
-			facingLeft = false;
-		else
-			facingLeft = true;
+		GetComponent<SpriteRenderer>().flipX = !GetComponent<SpriteRenderer>().flipX;
+		facingLeft = !facingLeft;
 	}
 
 	private void Shoot() {
