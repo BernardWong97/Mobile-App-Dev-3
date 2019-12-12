@@ -12,6 +12,8 @@ public class PlayerStatus : MonoBehaviour {
 	public Image fill;
 	public GameObject gameOverMenu;
 	public AudioSource gemAudio;
+	public AudioSource hurtAudio;
+	public AudioSource gameOverAudio;
 	public int gemCount;
 	private int gemDifference;
 	public GameObject gemEffectObj;
@@ -44,6 +46,7 @@ public class PlayerStatus : MonoBehaviour {
 	private void Die() {
 		isHealthMax = false;
 		gameOverMenu.SetActive(true);
+		gameOverAudio.Play();
 		Destroy(gameObject);
 	}
 
@@ -79,6 +82,7 @@ public class PlayerStatus : MonoBehaviour {
 	
 	private void OnCollisionEnter2D(Collision2D colObj) {
 		if (colObj.gameObject.CompareTag("fatal") && !isInvul) {
+			hurtAudio.Play();
 			healthBar.value -= 1;
 			isHealthMax = false;
 			gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
